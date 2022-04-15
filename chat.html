@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" type="text/css" href="chat.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atendimento Online</title>
+</head>
+
+<body>
+    <div class="container-box">
+        <header>
+            <div class="header-box">
+                <h1>Atendimento On-line</h1>
+            </div>
+        </header>
+        <div id="chat"></div>
+        <div class="body-box2">
+            <form class="text" action="chat.html" method="POST">
+                <input class="box-text" type="text" name="nome">
+                <button class="submit"> SUBMIT</button>
+            </form>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        const chatOne = document.querySelector(".body-box2");
+        chatOne.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            const typeText = document.querySelector(".box-text");
+            console.log(typeText.value);
+    
+
+            const nDiv = document.createElement("div");
+            nDiv.innerHTML = "<strong> Voce diz:</strong><br/>" + typeText.value;
+            //typeText = Junçao do campo de texto e  frase criada;;
+            //nDiv.innerHTML --> adiciona a frase ao html dentro da div criada;
+            //O innerHTML ou innerText adiciona elementos em tela;
+               const chat = document.querySelector("#chat");
+            chat.appendChild(nDiv);
+
+
+    
+        });
+
+
+        const corCampo = document.querySelector(".text");
+        corCampo.addEventListener("focus", function (event) {
+            event.target.style.borderColor = "#122b5e";
+        });
+
+    </script>
+</body>
+
+</html>
